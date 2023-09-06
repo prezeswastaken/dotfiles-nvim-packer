@@ -1,13 +1,15 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
+--[[
 return require("lazy").setup({
 
 	{
-		"nvim-telescope/telescope.nvim",
+	"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
 	},
+
 
 	"catppuccin/nvim",
 	"nvim-treesitter/nvim-treesitter",
