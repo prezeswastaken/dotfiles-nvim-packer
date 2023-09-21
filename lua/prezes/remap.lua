@@ -17,6 +17,19 @@ vim.keymap.set("n", "gc", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 -- Add remap for neorg lists
 vim.keymap.set("n", "<leader>l", "yypwwwc$")
 
--- Add reamp for toggling nvimtree
+-- Add remap for toggling nvimtree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<Enter>")
 vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
+
+vim.api.nvim_set_keymap("n", "<leader>z", ":lua ToggleWrap()<CR>", { noremap = true, silent = true })
+
+-- Add remap for formatting blade files
+vim.api.nvim_set_keymap("n", "<leader>f", ":!blade-formatter % --write<CR><Enter>", { noremap = true, silent = true })
+
+function ToggleWrap()
+	if vim.wo.wrap == true then
+		vim.wo.wrap = false
+	else
+		vim.wo.wrap = true
+	end
+end
