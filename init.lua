@@ -53,5 +53,13 @@ require("lazy").setup({
 	},
 
 	"lukas-reineke/indent-blankline.nvim",
+	{
+		"saecki/crates.nvim",
+		tag = "v0.3.0",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("crates").setup()
+		end,
+	},
 })
 require("prezes")
