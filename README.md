@@ -1,2 +1,2 @@
-# dotfiles-nvim-packer
-This is my configuration for nvim using packer
+# dotfiles-nvim
+This is my configuration for nvim
