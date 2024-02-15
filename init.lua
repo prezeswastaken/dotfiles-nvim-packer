@@ -1,4 +1,11 @@
 vim.g.mapleader = " "
+vim.api.nvim_set_option("clipboard", "unnamedplus")
+
+if vim.g.vscode then
+	-- VSCode extension
+	return
+end
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -42,8 +49,10 @@ require("lazy").setup({
 	"nvim-tree/nvim-web-devicons",
 	"feline-nvim/feline.nvim",
 	"nvim-neorg/neorg",
-	"jose-elias-alvarez/null-ls.nvim",
+	--"jose-elias-alvarez/null-ls.nvim",
+	"nvimtools/none-ls.nvim",
 	"nvim-tree/nvim-tree.lua",
+	"slint-ui/vim-slint",
 
 	{
 		"VonHeikemen/fine-cmdline.nvim",
@@ -60,6 +69,48 @@ require("lazy").setup({
 		config = function()
 			require("crates").setup()
 		end,
+		{
+			"kristijanhusak/vim-dadbod-ui",
+			dependencies = {
+				{ "tpope/vim-dadbod", lazy = true },
+				{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+			},
+			cmd = {
+				"DBUI",
+				"DBUIToggle",
+				"DBUIAddConnection",
+				"DBUIFindBuffer",
+			},
+			init = function()
+				-- Your DBUI configuration
+				vim.g.db_ui_use_nerd_fonts = 1
+			end,
+		},
+	},
+	{ "lervag/vimtex", lazy = false },
+	{
+		"chipsenkbeil/distant.nvim",
+		branch = "v0.3",
+		config = function()
+			require("distant"):setup()
+		end,
+		{
+			"smoka7/multicursors.nvim",
+			event = "VeryLazy",
+			dependencies = {
+				"smoka7/hydra.nvim",
+			},
+			opts = {},
+			cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+			keys = {
+				{
+					mode = { "v", "n" },
+					"<Leader>m",
+					"<cmd>MCstart<cr>",
+					desc = "Create a selection for selected text or word under the cursor",
+				},
+			},
+		},
 	},
 })
 require("prezes")

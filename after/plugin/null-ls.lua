@@ -14,6 +14,10 @@ null_ls.setup({
 			"go",
 			"vue",
 			"elixir",
+			"haskell",
+			"python",
+			"ocaml",
+			"sql",
 		}
 
 		if vim.tbl_contains(format_files, vim.bo.filetype) then
@@ -22,13 +26,21 @@ null_ls.setup({
 	end,
 	sources = {
 		null_ls.builtins.formatting.prettier,
+		--null_ls.builtins.formatting.biome,
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.phpcsfixer,
+		--null_ls.builtins.formatting.phpcsfixer,
 		null_ls.builtins.formatting.rustywind,
 		null_ls.builtins.formatting.astyle,
 		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.formatting.gofmt,
 		null_ls.builtins.formatting.mix,
-		null_ls.builtins.formatting.blade_formatter,
+		null_ls.builtins.formatting.blade_formatter.with({ args = { "--write", "$FILENAME" } }),
+		null_ls.builtins.formatting.brittany,
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.ocamlformat,
+		null_ls.builtins.formatting.pint,
+		null_ls.builtins.formatting.sqlfluff.with({
+			extra_args = { "--dialect", "sqlite" }, -- change to your dialect
+		}),
 	},
 })
