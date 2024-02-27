@@ -47,6 +47,9 @@ vim.api.nvim_set_keymap("n", "<F5>", ":LspRestart<Enter>", { noremap = true, sil
 -- Add remap for multicursor mode
 vim.api.nvim_set_keymap("n", "<C-y>", ":MCstart<Enter>", { noremap = true, silent = true })
 
+-- Add remap for generating DOCblocks
+vim.api.nvim_set_keymap("n", "<C-g>", ":Neogen<Enter>", { noremap = true, silent = true })
+
 function ToggleWrap()
 	if vim.wo.wrap == true then
 		vim.wo.wrap = false

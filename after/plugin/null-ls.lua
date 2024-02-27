@@ -18,12 +18,14 @@ null_ls.setup({
 			"python",
 			"ocaml",
 			"sql",
+			"json",
 		}
 
 		if vim.tbl_contains(format_files, vim.bo.filetype) then
 			require("lsp-zero").async_autoformat(client, bufnr)
 		end
 	end,
+
 	sources = {
 		null_ls.builtins.formatting.prettier,
 		--null_ls.builtins.formatting.biome,
@@ -42,5 +44,6 @@ null_ls.setup({
 		null_ls.builtins.formatting.sqlfluff.with({
 			extra_args = { "--dialect", "sqlite" }, -- change to your dialect
 		}),
+		null_ls.builtins.formatting.fixjson,
 	},
 })

@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.api.nvim_set_option("clipboard", "unnamedplus")
+vim.fn.setenv("CARGO_TARGET_DIR", "/home/prezes/.rust-analyzer-target")
 
 if vim.g.vscode then
 	-- VSCode extension
@@ -111,6 +112,20 @@ require("lazy").setup({
 				},
 			},
 		},
+	},
+	{
+		"numToStr/Comment.nvim",
+		opts = {
+			-- add any options here
+		},
+		lazy = false,
+	},
+	{
+		"danymat/neogen",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		config = true,
+		-- Uncomment next line if you want to follow only stable versions
+		-- version = "*"
 	},
 })
 require("prezes")
