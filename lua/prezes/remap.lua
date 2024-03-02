@@ -45,7 +45,7 @@ vim.api.nvim_set_keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, sile
 vim.api.nvim_set_keymap("n", "<F5>", ":LspRestart<Enter>", { noremap = true, silent = true })
 
 -- Add remap for multicursor mode
-vim.api.nvim_set_keymap("n", "<C-y>", ":MCstart<Enter>", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "<C-y>", ":MCstart<Enter>", { noremap = true, silent = true })
 
 -- Add remap for generating DOCblocks
 vim.api.nvim_set_keymap("n", "<C-g>", ":Neogen<Enter>", { noremap = true, silent = true })
