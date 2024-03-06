@@ -20,6 +20,8 @@ require("lspconfig").emmet_language_server.setup({
 		"html",
 		"htmldjango",
 		"javascriptreact",
+		"typescript",
+		"javascript",
 		"less",
 		"pug",
 		"sass",
